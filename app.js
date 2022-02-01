@@ -23,7 +23,7 @@ const campgrounds=require("./routers/campgrounds");
 const reviews=require("./routers/reviews");
 const users=require("./routers/user");
 
- const dbUrl=process.env.DB_URL ||'mongodb://localhost:27017/yelpCamp'
+ const dbUrl=process.env.DB_URL ||'mongodb://localhost:27017/yelpCamp';
 mongoose.connect(dbUrl)
 .then(()=>{
 console.log("Data base is connected !!");
@@ -103,7 +103,7 @@ app.use((err,req, res, next) =>{
   });
 
 
-app.listen(8000,()=>{
+app.listen(3000,()=>{
     console.log("The server is running on the port 3000");
 })
 
