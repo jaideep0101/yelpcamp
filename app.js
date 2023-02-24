@@ -20,14 +20,20 @@ const helmet=require("helmet");
 
 
 const campgrounds=require("./routers/campgrounds");
+
 const reviews=require("./routers/reviews");
+
 const users=require("./routers/user");
 
- const dbUrl=process.env.DB_URL ||'mongodb://localhost:27017/yelpCamp';
+
+
+ const dbUrl=process.env.DB_URL ||'mongodb://127.0.0.1:27017/yelpCamp';
+
 mongoose.connect(dbUrl)
 .then(()=>{
 console.log("Data base is connected !!");
 })
+
 
 const app=express();
 app.engine("ejs",ejsMate);
@@ -103,6 +109,7 @@ app.use((err,req, res, next) =>{
   });
 
 const port=process.env.PORT ||3000;
+console.log(port);
 app.listen(port,()=>{
     console.log(`Serving on port ${port}`);
 })
